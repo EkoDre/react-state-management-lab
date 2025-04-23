@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import FighterCard from './components/FighterCard';
 import TeamCard from './components/TeamCard';
+import Team from './components/Team';
 import './App.css';
 
 const App = () => {
@@ -96,7 +97,13 @@ const App = () => {
   const totalStrength = team.reduce((sum, f) => sum + f.strength, 0);
   const totalAgility = team.reduce((sum, f) => sum + f.agility, 0);
 
-
+  const handleRemoveFighter = (indexToRemove) => {
+    const removedFighter = team[indexToRemove];
+    setTeam(team.filter((_, index) => index !== indexToRemove));
+    setZombieFighters([...zombieFighters, removedFighter]);
+    setMoney(money + removedFighter.price); // Give money back on remove
+  };
+  
 
 
   const handleAddFighter = (fighter) => {
@@ -116,6 +123,9 @@ const App = () => {
     <h2>Team Strength: {totalStrength}</h2> 
     <h2>Team Agility: {totalAgility}</h2>   
     
+    <h3>Your Team</h3>
+    <Team team={team} removeFighter={handleRemoveFighter} />
+
 
       <h3>Available Fighters</h3>
       <ul>

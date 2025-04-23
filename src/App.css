@@ -14,3 +14,37 @@ li {
   border: whitesmoke 3px solid;
   border-radius: 8px;
 }
+
+.fighter-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.fighter-card {
+  background-color: #1e1e1e;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 150px;
+  text-align: center;
+}
+
+.fighter-card img {
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.fighter-card button {
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fighter-card button:hover {
+  background-color: #555;
+}
